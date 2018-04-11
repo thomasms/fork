@@ -10,16 +10,39 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 module fork_m
+    use, intrinsic :: iso_fortran_env
     implicit none
     private
 
-    !> Single precision
-    integer, parameter, public :: sp = kind(1.0)
+    !!
+    !! Platform independent integer and real kinds
+    !!
 
-    !> Double precision
-    integer, parameter, public :: dp = selected_real_kind(2*precision(1.0_sp))
 
-    !> Quad precision
-    integer, parameter, public :: qp = selected_real_kind(2*precision(1.0_dp))
+    !!          Integer values
+
+    !> Integer - [8 bit] / [1 bytes]
+    integer, parameter, public :: ki1 = int8
+
+    !> Integer - [16 bit] / [2 bytes]
+    integer, parameter, public :: ki2 = int16
+
+    !> Integer - [32 bit] / [4 bytes]
+    integer, parameter, public :: ki4 = int32
+
+    !> Integer - [64 bit] / [8 bytes]
+    integer, parameter, public :: ki8 = int64
+
+
+    !!          Real values
+
+    !> Single precision - [32 bit] / [4 bytes]
+    integer, parameter, public :: kr4 = real32
+
+    !> Double precision - [64 bit] / [8 bytes]
+    integer, parameter, public :: kr8 = real64
+
+    !> Quad precision - [128 bit] / [16 bytes]
+    integer, parameter, public :: kr16 = real128
 
 end module fork_m
