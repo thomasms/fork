@@ -62,9 +62,8 @@ module fork_m
     integer, parameter, public :: kr16 = real128
 #endif
 
-    !< If we specify FORK_USE_PREC_KIND for
-    !! precision names then it overrides FORK_USE_BIT_KIND
-    !! for reals only
+    !< If we specify FORK_USE_PREC_KIND it
+    !! enables SP, DP and QP aliases
     !!
     !! Naming convention for reals using FORK_USE_PREC_KIND
     !! is then SP (single precision), DP (Double precision)
@@ -77,5 +76,8 @@ module fork_m
     !> Quad precision - [128 bit] / [16 bytes]
     integer, parameter, public :: qp = real128
 #endif
+
+    !< Add custom definitions here
+    
 
 end module fork_m
