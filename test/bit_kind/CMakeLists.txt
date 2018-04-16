@@ -1,7 +1,9 @@
-project (DEFAULT_KIND)
+project (BIT_KIND)
 enable_language (Fortran)
 
-set (EXAMPLE_EXE_NAME defaultkindtest)
+add_definitions(-DFORK_USE_BIT_KIND=1)
+
+set (EXAMPLE_EXE_NAME bitkindtest)
 set (EXAMPLE_EXE_SOURCE test.F90)
 set_source_files_properties(${EXAMPLE_EXE_SOURCE} PROPERTIES COMPILE_FLAGS "${F90_FLAGS}")
 

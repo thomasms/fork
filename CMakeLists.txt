@@ -67,8 +67,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 
 # set include and link directories
-include_directories (${FORK_MODULE_DIR})
+include_directories (${FORK_MODULE_DIR} ${FORK_TEST_DIR})
 link_directories (${FORK_LIB_DIR})
 
 # sources
 add_subdirectory(${FORK_TEST_DIR}/default_kind)
+add_subdirectory(${FORK_TEST_DIR}/byte_kind)
+add_subdirectory(${FORK_TEST_DIR}/bit_kind)

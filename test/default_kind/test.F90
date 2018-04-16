@@ -1,17 +1,13 @@
-program defaultkind
-    use fork_m
-    implicit none
+#define MACRO_TEST_NAME defaultkindtest
+#define MACRO_KIND1 ki1
+#define MACRO_KIND2 ki2
+#define MACRO_KIND3 ki4
+#define MACRO_KIND4 ki8
 
-    integer(ki1) :: i
-    integer(ki2) :: j
-    integer(ki4) :: k
-    integer(ki8) :: l
+#include "base_test.h"
 
-    i = 1_ki1
-    j = 2_ki2
-    k = 4_ki4
-    l = 8_ki8
-
-    
-
-end program defaultkind
+#undef MACRO_TEST_NAME
+#undef MACRO_KIND1
+#undef MACRO_KIND2
+#undef MACRO_KIND3
+#undef MACRO_KIND4
