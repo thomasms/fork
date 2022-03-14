@@ -1,0 +1,42 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        gcc_v: [9, 10, 11] # Version of GFortran we want to use.
+        build: [cmake]
+        include:
+          - os: ubuntu-latest
+            gcc_v: 10
+            build: cmake-inline
+          - os: ubuntu-latest
+            gcc_v: 10
+            build: make
+    env:
+      FC: gfortran-${{ matrix.gcc_v }}
+      CC: gcc-${{ matrix.gcc_v }}
+      CXX: g++-${{ matrix.gcc_v }}
+      GCC_V: ${{ matrix.gcc_v }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build
+      run: |
+          mkdir build
+          cd build
+          cmake ..
+          make -j4
+    - name: Run test
+    - run: ./bin/testcpp
+
